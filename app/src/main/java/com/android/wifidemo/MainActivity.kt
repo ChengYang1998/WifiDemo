@@ -21,11 +21,14 @@ import java.io.PrintWriter
 import java.net.InetAddress
 import java.net.Socket
 
+//wifi config
+private const val ssid = "SmartBed"
+private const val pwd = "1234567890"
 
+//socket config
 const val ipAddress = "192.168.4.1" // 要连接的设备的 IP 地址
 const val port = 7890 // 要连接的设备的端口号
 const val message = "Hello, device!" // 要发送的消息
-
 class MainActivity : AppCompatActivity() {
 
     private var connecting: Boolean = false
@@ -50,7 +53,7 @@ class MainActivity : AppCompatActivity() {
             }
 
         btnLink.setOnClickListener {
-            WifiSupport.connect("SmartBed", "1234567890", this)
+            WifiSupport.connect(ssid, pwd, this)
         }
         btnSocket.setOnClickListener {
 
